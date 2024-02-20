@@ -3,6 +3,7 @@ local telescope = require('telescope')
 local telscope_actions = require('telescope.actions')
 local trouble = require('trouble.providers.telescope')
 
+telescope.setup();
 vim.keymap.set('i', '<c-t>', trouble.open_with_trouble, {})
 vim.keymap.set('n', '<c-t>', trouble.open_with_trouble, {})
 

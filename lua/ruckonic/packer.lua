@@ -8,7 +8,7 @@ return require('packer').startup(function(use)
   use('wbthomason/packer.nvim')
 
   use({
-    'nvim-telescope/telescope.nvim', tag = '0.1.4',
+    'nvim-telescope/telescope.nvim', tag = '0.1.5',
     requires = { {'nvim-lua/plenary.nvim'} }
   })
 
@@ -16,7 +16,7 @@ return require('packer').startup(function(use)
 
   use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
   use('nvim-treesitter/playground')
-  
+
   use('theprimeagen/harpoon')
 
   use('mbbill/undotree')
@@ -24,11 +24,11 @@ return require('packer').startup(function(use)
   use('tpope/vim-fugitive')
 
   use('editorconfig/editorconfig-vim')
-  
+
   use("nvim-treesitter/nvim-treesitter-context")
 
   use("github/copilot.vim")
-  
+
   -- comments
   use({
     'numToStr/Comment.nvim',
@@ -66,9 +66,20 @@ return require('packer').startup(function(use)
       {'rafamadriz/friendly-snippets'},
     }
   })
- 
-  
+
   use({"nvim-tree/nvim-web-devicons"})
   use({"folke/trouble.nvim"})
+  use({"MunifTanjim/nui.nvim"})
+
+  use({
+      "nvim-neo-tree/neo-tree.nvim",
+      branch = "v3.x",
+      dependencies = {
+          "nvim-web-devicons",
+          "nvim-tree/nvim-web-devicons",
+          "MunifTanjim/nui.nvim"
+      },
+  })
+
 end)
 
