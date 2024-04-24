@@ -6,7 +6,6 @@ local config = {
     popup_border_style = "rounded",
     enable_git_status = true,
     enable_diagnostics = true,
-    enable_normal_mode_for_inputs = false, -- Enable normal mode for input dialogs.
     open_files_do_not_replace_types = {"terminal", "trouble", "qf"}, -- when opening files, do not use windows containing these filetypes or buftypes
     sort_case_insensitive = false, -- used when sorting files and directories in the tree
     sort_function = nil, -- use a custom function for sorting files and directories in the tree
@@ -260,6 +259,17 @@ local config = {
                 ["ot"] = {"order_by_type", nowait = false}
             }
         }
+    },
+    event_handlers = {
+        {
+            event = "neo_tree_popup_input_ready",
+            --@param args { bufnr: integer, winid: integer}
+            handler = function(args)
+                -- do something
+                vim.cmd("stopinsert")
+                vim.keymap.set("i", "<esc>", vim.cmd.stopinsert, {noremap = true ,buffer = args.bufnr})
+            end
+        }
     }
 }
 
@@ -268,6 +278,7 @@ vim.fn.sign_define("DiagnosticSignWarn", {text = " ", texthl = "DiagnosticSig
 vim.fn.sign_define("DiagnosticSignInfo", {text = " ", texthl = "DiagnosticSignInfo"})
 vim.fn.sign_define("DiagnosticSignHint", {text = "󰌵", texthl = "DiagnosticSignHint"})
 
-vim.keymap.set("n", "<leader>e", function() vim.cmd("Neotree")  end)
+vim.keymap.set("n", "<leader>e", function() vim.cmd("Neotree toggle")  end)
 
 neotree.setup(config)
+
