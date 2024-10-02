@@ -7,7 +7,7 @@ local cmp = require('cmp')
 lsp.preset("recommended")
 lsp.setup()
 
-lsp.on_attach(function(client, bufnr)
+lsp.on_attach(function(_, bufnr)
   -- see :help lsp-zero-keybindings
   -- to learn the available actions
   lsp.default_keymaps({buffer = bufnr})

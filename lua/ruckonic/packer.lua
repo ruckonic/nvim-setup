@@ -70,6 +70,11 @@ return require('packer').startup(function(use)
   use({"nvim-tree/nvim-web-devicons"})
   use({"folke/trouble.nvim"})
   use({"MunifTanjim/nui.nvim"})
+  use({
+      's1n7ax/nvim-window-picker',
+      tag = 'v2.*',
+  })
+
 
   use({
       "nvim-neo-tree/neo-tree.nvim",
@@ -98,6 +103,8 @@ return require('packer').startup(function(use)
         'nvim-tree/nvim-web-devicons',
     }
   })
+
+  use({'sbdchd/neoformat'})
 
 end)
 
